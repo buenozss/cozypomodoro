@@ -1,0 +1,740 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --cream: #f4efe4;
+    --paper: #fffdf7;
+    --green: #71816a;
+    --dark-green: #465b45;
+    --brown: #786653;
+    --muted: #a0927e;
+    --pink: #e9b9b5;
+    --border: #e8dfcf;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cream);
+    background-image: radial-gradient(#d9cdb9 0.6px, transparent 0.6px);
+    background-size: 9px 9px;
+    color: var(--brown);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 5%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 35px;
+    color: var(--green);
+}
+
+.brand h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-green);
+    font-size: 27px;
+}
+
+.brand p,
+.date-label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.date-label {
+    background: #fffaf0;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 10px 18px;
+}
+
+/* Layout */
+
+.workspace {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.85fr) minmax(400px, 1.8fr) minmax(220px, 0.85fr);
+    gap: 25px;
+    max-width: 1500px;
+    margin: 15px auto;
+    padding: 20px 4%;
+    align-items: start;
+}
+
+/* Cartões de papel */
+
+.paper-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 5px 15px 5px 15px;
+    padding: 27px 23px;
+    box-shadow: 3px 5px 12px rgba(91, 75, 52, 0.07);
+    position: relative;
+}
+
+.timer-card {
+    text-align: center;
+    transform: rotate(-1deg);
+}
+
+.card-decoration {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    color: var(--pink);
+}
+
+.eyebrow {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--dark-green);
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+}
+
+/* Temporizador */
+
+.timer-display {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 5vw, 65px);
+    color: var(--green);
+    margin: 30px 0 12px;
+}
+
+.timer-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.start-button {
+    border: none;
+    background: var(--green);
+    color: white;
+    padding: 12px 23px;
+    border-radius: 30px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.start-button:hover {
+    background: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.session-info {
+    border-top: 1px dashed var(--border);
+    margin-top: 25px;
+    padding-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* Álbum */
+
+.album-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 22px;
+}
+
+.page-counter {
+    background: #fffaf0;
+    border: 1px solid var(--border);
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.open-book {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 440px;
+    filter: drop-shadow(3px 8px 8px rgba(91, 75, 52, 0.10));
+}
+
+.book-page {
+    background: #fffdf5;
+    border: 1px solid #e7dcc8;
+    padding: 30px 23px;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-page {
+    border-radius: 8px 0 0 8px;
+    background-image: linear-gradient(to right, transparent 96%, rgba(120, 100, 70, 0.08));
+}
+
+.right-page {
+    border-radius: 0 8px 8px 0;
+    background-image: linear-gradient(to left, transparent 96%, rgba(120, 100, 70, 0.08));
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--green);
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.page-content {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 15px;
+}
+
+.page-flower {
+    display: block;
+    font-size: 50px;
+    color: var(--pink);
+    margin-top: 25px;
+}
+
+.sticker-area {
+    min-height: 270px;
+    border: 1px dashed #e4d8c3;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    color: #b1a38e;
+    font-size: 12px;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b7a991;
+    font-size: 10px;
+}
+
+.tape {
+    position: absolute;
+    top: 8px;
+    width: 55px;
+    height: 17px;
+    background: rgba(233, 185, 181, 0.48);
+}
+
+.tape-left {
+    left: 35px;
+    transform: rotate(-9deg);
+}
+
+.tape-right {
+    right: 35px;
+    transform: rotate(8deg);
+}
+
+/* Navegação do álbum */
+
+.album-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.page-button {
+    background: #fffaf0;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 9px 14px;
+    color: var(--brown);
+    cursor: pointer;
+}
+
+.page-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Tarefas e diário */
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.section-heading span {
+    color: var(--pink);
+    font-size: 22px;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+}
+
+.empty-state {
+    min-height: 105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.empty-state span {
+    font-size: 28px;
+    color: #c5b99f;
+}
+
+.progress-card {
+    background: #e8eadc;
+    border: 1px solid #dce0cf;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.progress-card h2 {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.progress-card > p:last-child {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+.progress-track {
+    height: 7px;
+    background: #d4d9c8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--green);
+}
+
+/* Telas menores */
+
+@media (max-width: 1000px) {
+    .workspace {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    .right-panel {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .progress-card {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 650px) {
+    .topbar {
+        padding: 20px;
+    }
+
+    .date-label {
+        display: none;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .right-panel {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .progress-card {
+        grid-column: auto;
+    }
+
+    .open-book {
+        min-height: 350px;
+    }
+
+    .book-page {
+        padding: 25px 12px;
+    }
+}
+
+
+/* ==========================================
+   SISTEMA DE ADESIVOS
+========================================== */
+
+/* Inventário de adesivos */
+.sticker-inventory {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+    min-height: 45px;
+    align-items: center;
+}
+
+.sticker-inventory p {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Adesivos */
+.sticker-item {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    border-radius: 10px;
+    transition: transform 0.15s ease;
+}
+
+.sticker-item:hover {
+    transform: scale(1.12);
+}
+
+.sticker-item:active {
+    cursor: grabbing;
+}
+
+/* Página do álbum */
+.sticker-area {
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+    touch-action: none;
+}
+
+/* Adesivos posicionados no álbum */
+.sticker-placed {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    margin: 0;
+}
+
+/* Efeito ao passar o mouse */
+.sticker-placed:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* Adesivo enquanto está sendo arrastado */
+.sticker-preview {
+    position: fixed;
+    transform: translate(-50%, -50%) scale(1.15);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   LISTA DE TAREFAS
+========================================== */
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.task-form input {
+    width: 100%;
+    padding: 12px 13px;
+    background: #fffaf0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    color: var(--brown);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.task-form input::placeholder {
+    color: #b7aa97;
+}
+
+.task-form input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(113, 129, 106, 0.10);
+}
+
+.task-form .page-button {
+    align-self: flex-start;
+    background: var(--green);
+    color: white;
+    border: none;
+    transition: 0.2s;
+}
+
+.task-form .page-button:hover {
+    background: var(--dark-green);
+    transform: translateY(-1px);
+}
+
+/* Lista */
+
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 11px;
+    background: #fffaf0;
+    border: 1px solid #eee5d7;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--brown);
+    transition: background 0.2s;
+}
+
+.task-item:hover {
+    background: #fdf7eb;
+}
+
+/* Checkbox */
+
+.task-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #c8bda9;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+
+.task-item input[type="checkbox"]:checked {
+    background: var(--green);
+    border-color: var(--green);
+}
+
+.task-item input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 11px;
+    left: 3px;
+    top: -1px;
+}
+
+/* Texto da tarefa */
+
+.task-item span {
+    flex: 1;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: #b4aa9a;
+}
+
+/* Botão excluir */
+
+.task-item button {
+    border: none;
+    background: transparent;
+    color: #c59b95;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 2px 5px;
+    transition: 0.2s;
+}
+
+.task-item button:hover {
+    color: #a65f58;
+    transform: scale(1.15);
+}
+
+/* Lista vazia */
+
+.task-empty {
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    padding: 15px 5px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+}
+
+/* =========================
+   DIÁRIO
+========================= */
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.note-form input,
+.note-form textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fffaf0;
+    color: var(--brown);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+    border-color: var(--green);
+}
+
+.note-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.note-form input::placeholder,
+.note-form textarea::placeholder {
+    color: var(--muted);
+}
+
+.note-form button {
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.note-item {
+    padding: 14px;
+    background: #fffaf0;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+}
+
+.note-item h3 {
+    margin: 0 0 7px;
+    color: var(--dark-green);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+}
+
+.note-item p {
+    margin: 0 0 10px;
+    color: var(--brown);
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.note-item small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.note-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.note-actions button {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--brown);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.note-actions button:hover {
+    background: var(--cream);
+}
+
+.notes-empty {
+    padding: 18px 10px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}

@@ -1,0 +1,57 @@
+name: CI - CozyPomodoro
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature
+      - 'feature/**'
+
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Análise estática com ESLint
+        run: npm run lint
+
+      - name: Iniciar aplicação e executar testes
+        run: |
+          npm start > /tmp/cozypomodoro.log 2>&1 &
+          SERVER_PID=$!
+
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:3000/ > /dev/null; then
+              echo "Servidor iniciado com sucesso!"
+              break
+            fi
+            sleep 1
+          done
+
+          if ! curl -fsS http://localhost:3000/ > /dev/null; then
+            echo "Não foi possível iniciar o servidor."
+            cat /tmp/cozypomodoro.log
+            exit 1
+          fi
+
+          npm run test:coverage

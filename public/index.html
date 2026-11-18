@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CozyPomodoro | Meu cantinho</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-icon">✿</span>
+            <div>
+                <h1>cozy pomodoro</h1>
+                <p>um cantinho só seu</p>
+            </div>
+        </div>
+
+        <div class="date-label">
+            <span>♡</span> um dia de cada vez
+        </div>
+    </header>
+
+    <main class="workspace">
+
+        <!-- Temporizador -->
+        <aside class="left-panel">
+
+            <section class="paper-card timer-card">
+                <span class="card-decoration">✿</span>
+
+                <p class="eyebrow">SEU MOMENTO</p>
+                <h2>Hora de florescer</h2>
+
+                <div class="timer-display" id="timer">25:00</div>
+
+                <p class="timer-description" id="timer-message">
+                    Respire fundo e aproveite seu momento de foco.
+                </p>
+
+                <div class="timer-controls">
+                    <button class="start-button" id="start-timer">
+                        Começar sessão
+                    </button>
+
+                    <button class="page-button" id="pause-timer">
+                        Pausar
+                    </button>
+
+                    <button class="page-button" id="reset-timer">
+                        Reiniciar
+                    </button>
+                </div>
+
+                <div class="session-info">
+                    <span>☕</span>
+                    <span>Uma pausa também faz parte do caminho.</span>
+                </div>
+            </section>
+
+        </aside>
+
+        <!-- Álbum central -->
+        <section class="center-panel">
+
+            <div class="album-heading">
+                <div>
+                    <p class="eyebrow">SUAS PEQUENAS CONQUISTAS</p>
+                    <h2>Meu álbum de lembranças</h2>
+                </div>
+
+                <span class="page-counter" id="page-counter">
+                    01 / 10
+                </span>
+            </div>
+
+            <div class="open-book">
+
+                <!-- Página esquerda -->
+                <div class="book-page left-page">
+                    <span class="tape tape-left"></span>
+
+                    <p class="page-title">meu cantinho</p>
+
+                    <div class="page-content">
+                        <p>Cada pequeno passo merece ser lembrado.</p>
+                        <span class="page-flower">✿</span>
+                    </div>
+
+                    <span class="page-number">01</span>
+                </div>
+
+                <!-- Página direita -->
+                <div class="book-page right-page">
+                    <span class="tape tape-right"></span>
+
+                    <p class="page-title">minhas conquistas</p>
+
+                    <div class="sticker-area" id="sticker-area">
+                        <p class="sticker-placeholder">
+                            Arraste seus adesivos para cá...
+                        </p>
+                    </div>
+
+                    <span class="page-number">02</span>
+                </div>
+
+            </div>
+
+            <!-- Navegação do álbum -->
+            <div class="album-navigation">
+                <button class="page-button" id="previous-page" disabled>
+                    ← Anterior
+                </button>
+
+                <span>uma página de cada vez ♡</span>
+
+                <button class="page-button" id="next-page">
+                    Próxima →
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Organização -->
+        <aside class="right-panel">
+
+            <!-- Tarefas -->
+            <section class="paper-card tasks-card">
+
+                <div class="section-heading">
+                    <span>✎</span>
+                    <h2>Minha listinha</h2>
+                </div>
+
+                <p class="eyebrow">PEQUENAS COISAS DO DIA</p>
+
+                <form id="task-form" class="task-form">
+
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="O que você precisa fazer?"
+                        maxlength="80"
+                        required
+                    >
+
+                    <button type="submit" class="page-button">
+                        + Adicionar
+                    </button>
+
+                </form>
+
+                <ul id="task-list" class="task-list"></ul>
+
+            </section>
+
+            <!-- Diário -->
+            <section class="paper-card notes-card">
+
+                <div class="section-heading">
+                    <span>♡</span>
+                    <h2>Meu diário</h2>
+                </div>
+
+                <p class="eyebrow">PENSAMENTOS E IDEIAS</p>
+
+                <form id="note-form" class="note-form">
+
+                    <input
+                        type="text"
+                        id="note-title"
+                        placeholder="Título da anotação..."
+                        maxlength="50"
+                        required
+                    >
+
+                    <textarea
+                        id="note-content"
+                        placeholder="Escreva o que está pensando..."
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="page-button">
+                        + Guardar anotação
+                    </button>
+
+                </form>
+
+                <div id="notes-list" class="notes-list"></div>
+
+            </section>
+
+            <!-- Coleção de adesivos -->
+            <section class="progress-card" id="collection-card">
+
+                <p class="eyebrow">SUA COLEÇÃO</p>
+
+                <h2 id="collection-count">
+                    0 de 10 adesivos
+                </h2>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+
+                <p id="collection-message">
+                    Suas conquistas estão apenas começando!
+                </p>
+
+                <div class="sticker-inventory" id="sticker-inventory">
+                    <p>Nenhum adesivo disponível ainda.</p>
+                </div>
+
+            </section>
+
+        </aside>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/timer.js"></script>
+
+</body>
+</html>
