@@ -1,13 +1,12 @@
-namebranches:
-      - main
-      - develop
-      - feature
-      - 'feature/**': CI - CozyPomodoro
+name: CI - CozyPomodoro
 
 on:
   push:
     branches:
-    
+      - main
+      - develop
+      - feature
+      - 'feature/**'
 
   pull_request:
     branches:
