@@ -1,0 +1,38 @@
+namebranches:
+      - main
+      - develop
+      - feature
+      - 'feature/**': CI - CozyPomodoro
+
+on:
+  push:
+    branches:
+    
+
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Análise estática com ESLint
+        run: npm run lint
+
+      - name: Executar testes e cobertura
+        run: npm run test:coverage

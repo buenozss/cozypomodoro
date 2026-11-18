@@ -1,0 +1,44 @@
+{
+    "tarefas": [
+        {
+            "id": "082e3774-1719-4677-aaa1-36bf1d6bf48a",
+            "texto": "Estudar para a apresentação",
+            "concluida": true
+        },
+        {
+            "id": "6712de5c-4070-4c1a-bcaf-230fc2d1f8bb",
+            "texto": "dormir",
+            "concluida": true
+        }
+    ],
+    "notas": [
+        {
+            "id": "99d6ba7d-e413-4f4a-8cf9-cf1635b36083",
+            "titulo": "Teste",
+            "conteudo": "oiiieee",
+            "data": "2026-11-18T15:22:23.817Z"
+        },
+        {
+            "id": "5e876936-b3bf-423e-8b92-d874a11945b5",
+            "titulo": "Teste do diário",
+            "conteudo": "Testando integração com Node.js",
+            "data": "2026-11-18T15:18:59.963Z"
+        }
+    ],
+    "sessoes": [
+        {
+            "id": "6eb66f63-59db-44b2-8013-f247b91cd202",
+            "duracao": 1500,
+            "concluidaEm": "2026-11-18T16:14:00.510Z"
+        }
+    ],
+    "adesivosDesbloqueados": 1,
+    "posicoesAdesivos": {},
+    "paginaAtual": 1,
+    "pomodoro": {
+        "status": "concluido",
+        "duracao": 1500,
+        "tempoRestante": 0,
+        "iniciadoEm": null
+    }
+}
