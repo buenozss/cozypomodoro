@@ -1,4 +1,3 @@
-
 name: CD - CozyPomodoro
 
 on:
@@ -10,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    name: Atualizar aplicação na EC2
     runs-on: self-hosted
 
     steps:
@@ -27,4 +27,3 @@ jobs:
           sudo systemctl is-active cozypomodoro
 
           echo "Deploy realizado com sucesso!"
-
