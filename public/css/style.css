@@ -19,7 +19,7 @@
 }
 
 body {
-    background-color: var(--cream);
+    background-color: #f3eee7;
     background-image: radial-gradient(#d9cdb9 0.6px, transparent 0.6px);
     background-size: 9px 9px;
     color: var(--brown);
