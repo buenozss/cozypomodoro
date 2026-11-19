@@ -1,0 +1,30 @@
+
+name: CD - CozyPomodoro
+
+on:
+  push:
+    branches:
+      - develop
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Atualizar aplicação na EC2
+        run: |
+          cd /home/ubuntu/cozypomodoro
+
+          git fetch origin develop
+          git reset --hard origin/develop
+
+          npm ci --omit=dev
+
+          sudo systemctl restart cozypomodoro
+
+          sudo systemctl is-active cozypomodoro
+
+          echo "Deploy realizado com sucesso!"
+
